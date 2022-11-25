@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Pagina inicial</title>
+	<!--Stylesheet-->
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<!--Scripts-->
+	<script defer type="text/javascript" src="js/script.js"></script>
+	<!--Assets-->
+	<link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+	<link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+	<!--Font-->
+  	<link rel="preconnect" href="https://fonts.googleapis.com">
+  	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&display=swap" rel="stylesheet">
+
+</head>
+<body>
+	<div class="container"">
+		<header>
+			<a href="./index.html" class="logo"><i class="ri-plant-fill"></i></i><span>PlanTec</span></a>
+			<ul class="navbar">
+				<li><a href="#home" class="active">Home</a></li>
+				<li><a href="#project">Project</a></li>
+				<li><a href="#IoT">Tools</a></li>
+				<li><a href="#contact">Contact</a></li>
+			</ul>
+	
+			<div class="main">
+				<a href="./log-in.html" class="user"><i class="ri-user-fill"></i>Log In</a>
+				<a href="./sign-up.html">Sign Up</a>
+				<div class="bx bx-menu" id="menu-icon"></div>
+			</div>
+		</header>
+		<!--Animacion navbar-->
+		<script type="text/javascript">
+			window.addEventListener	("scroll", function() {
+				var header = document.querySelector("header");
+				header.classList.toggle("sticky", window.scrollY > 100);
+			})
+		</script>
+	</div>
+
+	<section alt="" id="home" class="hidden">
+		<div class="top">
+			<h1>Welcome to PlanTec!</h1>
+			<p>Your new smart planter</p>
+		</div>
+		<a href="./panel.html" class="btn">
+			<span>Get started</span>
+			<div class="wave"></div>
+		</a>
+	</section>
+	<section alt="" id="project" class="hidden"><div></div>
+		<div class="left">
+			<h1>The project</h1>
+			<p>Ever wondered if your plants are in need of something?</p>
+			<p>With PlanTec you can figure that out and more!</p>
+		</div>
+	</section>
+	<section alt="" id="IoT" class="hidden">
+		<div class="right">
+			<h1>The tools</h1>
+			<p>PlanTec uses simple, reliable tools.</p>
+			<p>All you need is a web browser, neat!</p> 
+		</div>
+	</section>
+	<section alt="" id="contact" class="hidden">
+		<div class="bottom">
+			<h1>Contact</h1>
+			<p>Have any questions? Feel free to send us an email at</p>
+			<p>contact@plantec.live</p>
+		</div>	
+	</section>
+
+	<footer>
+
+	</footer>
+
+</body>
+</html> 
