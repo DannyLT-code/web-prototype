@@ -1,31 +1,94 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Panel</title>
-    <!--Stylesheet-->
-	<link rel="stylesheet" type="text/css" href="css/style.css">
-	<!--Scripts-->
-	<script defer type="text/javascript" src="js/script.js"></script>
-	<!--Assets-->
-	<link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
-	<link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
-	<!--Font-->
-  	<link rel="preconnect" href="https://fonts.googleapis.com">
-  	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard</title>
+  <!--GRAFICOS-->
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Temperatura', 'Medidas'],
+          ['2004',  400],
+          ['2005',  460],
+          ['2006',  1120],
+          ['2007',  540]
+        ]);
+
+        var options = {
+          title: 'Light readings',
+          curveType: 'function',
+          legend: { position: 'bottom' }
+        };
+
+        var chartLuz = new google.visualization.LineChart(document.getElementById('luz'));
+        var chartAgua = new google.visualization.LineChart(document.getElementById('agua'));
+        var chartTemperatura = new google.visualization.LineChart(document.getElementById('temperatura'));
+
+        chartLuz.draw(data, options);
+        chartAgua.draw(data, options);
+        chartTemperatura.draw(data, options);
+      }
+    </script>
+
+  <!--Material icons-->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet">
+  <!--Stylesheets-->
+  <link rel="stylesheet" href="./css/panel.css">
 </head>
 <body>
     <div class="container">
         <aside>
             <div class="top">
-                <div class="logo">
-                    <a href="./index.html" class="logo"><i class="ri-plant-fill"></i></i><span>PlanTec</span></a>
+                <a href=index.html class="logo">
+                    <img src="./Assets/logo.svg" class="filter-green"/>
+                    <h2 class="text-color">Plan<span class="text-color">Tec</span></h2>
+                </a>
+                <div class="close" id="close-btn">
+                    <span class="material-icons-sharp">close</span>
                 </div>
             </div>
+            <div class="sidebar">
+                <a href="#" class="active ">
+                    <span class="material-icons-sharp">dashboard</span>
+                    <h3>Dashboard</h3>
+                </a>
+                <a href="#">
+                    <span class="material-icons-sharp">tungsten</span>
+                    <h3>Light</h3>
+                </a>
+                <a href="#">
+                    <span class="material-icons-sharp">water_drop</span>
+                    <h3>Water</h3>
+                </a>
+                <a href="#">
+                    <span class="material-icons-sharp">thermostat</span>
+                    <h3>Temperature</h3>
+                </a>
+                <a href="#">
+                    <span class="material-icons-sharp">settings</span>
+                    <h3>Settings</h3>
+                </a>
+                <a href="#">
+                    <span class="material-icons-sharp">logout</span>
+                    <h3>Logout</h3>
+                </a>
+            </div>
         </aside>
+        <!--END OF ASIDE-->
+        <div class="graphs">
+            <div class="navbar">
+                <div class="nav">Welcome, ${User}</div>
+            </div>
+            <div class="Luz" id="luz"></div>
+            <div class="Agua" id="agua"></div>
+            <div class="Temperatura" id="temperatura"></div>
+        </div>
     </div>
 </body>
 </html>
